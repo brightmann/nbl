@@ -1,5 +1,8 @@
 module.exports = {
   output: 'export',
+  // GitHub Pages serves the site under /nbl; Workers serves it at the root.
+  // Set NEXT_BASE_PATH=/nbl for the Pages build, leave unset for Workers.
+  basePath: process.env.NEXT_BASE_PATH || '',
   images: {
     unoptimized: true,
     domains: ['gravatar.com']

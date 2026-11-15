@@ -10,6 +10,9 @@ class MyDocument extends Document {
   }
 
   render () {
+    // Plain <link> tags do not get Next.js basePath prepended automatically,
+    // so prefix them here ('' on Workers, '/nbl' on GitHub Pages).
+    const basePath = process.env.NEXT_BASE_PATH || ''
     const initialColorScheme = {
       auto: 'color-scheme-unset',
       dark: 'dark'
@@ -23,14 +26,14 @@ class MyDocument extends Document {
             <>
               <link
                 rel="preload"
-                href="/fonts/SourceSerif.var.woff2"
+                href={`${basePath}/fonts/SourceSerif.var.woff2`}
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
               />
               <link
                 rel="preload"
-                href="/fonts/SourceSerif-Italic.var.woff2"
+                href={`${basePath}/fonts/SourceSerif-Italic.var.woff2`}
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
@@ -41,14 +44,14 @@ class MyDocument extends Document {
             <>
               <link
                 rel="preload"
-                href="/fonts/IBMPlexSansVar-Roman.woff2"
+                href={`${basePath}/fonts/IBMPlexSansVar-Roman.woff2`}
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
               />
               <link
                 rel="preload"
-                href="/fonts/IBMPlexSansVar-Italic.woff2"
+                href={`${basePath}/fonts/IBMPlexSansVar-Italic.woff2`}
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
@@ -88,8 +91,8 @@ class MyDocument extends Document {
               </noscript>
             </>
           )}
-          <link rel="icon" href="/favicon.png" />
-          <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed.xml"></link>
+          <link rel="icon" href={`${basePath}/favicon.png`} />
+          <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href={`${basePath}/feed.xml`}></link>
           {config.appearance === 'auto'
             ? (
             <>
