@@ -1,5 +1,4 @@
-allowBuilds:
-  canvas: true
+allowBuilds: {}
 patchedDependencies:
   react-notion-x@6.16.0: patches/react-notion-x@6.16.0.patch
   notion-utils@6.16.0: patches/notion-utils@6.16.0.patch
